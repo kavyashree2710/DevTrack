@@ -3,10 +3,12 @@ from .models import Bug
 
 
 class BugSerializer(serializers.ModelSerializer):
+
     assigned_to_username = serializers.CharField(
         source="assigned_to.username",
         read_only=True
     )
+
     class Meta:
         model = Bug
         fields = [
@@ -16,6 +18,7 @@ class BugSerializer(serializers.ModelSerializer):
             "severity",
             "status",
             "assigned_to",
+            "assigned_to_username",
             "root_cause",
             "resolution",
             "created_at",
