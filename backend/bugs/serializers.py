@@ -3,6 +3,10 @@ from .models import Bug
 
 
 class BugSerializer(serializers.ModelSerializer):
+    assigned_to_username = serializers.CharField(
+        source="assigned_to.username",
+        read_only=True
+    )
     class Meta:
         model = Bug
         fields = [
